@@ -31,44 +31,44 @@ class HomeState extends State<Home> {
   Widget build(BuildContext context) {
     // TODO: Wrap inside a Consumer Widget
     // 1
-return Consumer<TabManager>(builder: (context, tabManager,
-child) {
-return Scaffold(
-appBar: AppBar(
-title: Text(
-'Fooderlich',
-style: Theme.of(context).textTheme.headline6,
-),
-),
+    return Consumer<TabManager>(builder: (context, tabManager, child) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'Fooderlicher',
+            style: Theme.of(context).textTheme.headline6,
+          ),
+        ),
 // 2
-body: IndexedStack(index: tabManager.selectedTab, children:
-pages,),
-bottomNavigationBar: BottomNavigationBar(
-selectedItemColor: Theme.of(context)
-.textSelectionTheme.selectionColor,
+        body: IndexedStack(
+          index: tabManager.selectedTab,
+          children: pages,
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor:
+              Theme.of(context).textSelectionTheme.selectionColor,
 // 3
-currentIndex: tabManager.selectedTab,
-onTap: (index) {
+          currentIndex: tabManager.selectedTab,
+          onTap: (index) {
 // 4
-tabManager.goToTab(index);
-},
-items: const [
-BottomNavigationBarItem(
-icon: Icon(Icons.explore),
-label: 'Explore',
-),
-BottomNavigationBarItem(
-icon: Icon(Icons.book),
-label: 'Recipes',
-),
-BottomNavigationBarItem(
-icon: Icon(Icons.list),
-label: 'To Buy',
-),
-],
-),
-);
-}
-);
+            tabManager.goToTab(index);
+          },
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.explore),
+              label: 'Explore',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.book),
+              label: 'Recipes',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.list),
+              label: 'To Buy',
+            ),
+          ],
+        ),
+      );
+    });
   }
 }
